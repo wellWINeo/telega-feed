@@ -1,0 +1,9 @@
+
+### Get daily digest
+GET {{url}}/api/feed/digest
+X-UserId: {{userId}}
+
+### Get article's summary
+@articleId = 13
+GET {{url}}/api/articles/{{articleId}}/summary
+X-UserId: {{userId}}

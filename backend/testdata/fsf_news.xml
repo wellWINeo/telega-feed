@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:syn="http://purl.org/rss/1.0/modules/syndication/" xmlns="http://purl.org/rss/1.0/">
+
+
+
+<channel rdf:about="http://www.fsf.org/news/aggregator/RSS">
+  <title>FSF News</title>
+  <link>http://www.fsf.org/news/aggregator</link>
+  <description></description>
+  <image rdf:resource="http://www.fsf.org/logo.png"/>
+
+  <items>
+    <rdf:Seq>
+      
+        <rdf:li rdf:resource="http://www.fsf.org/news/2025-auction-recap"/>
+      
+      
+        <rdf:li rdf:resource="http://www.fsf.org/news/2025-silent-auction-pre-bid-phase"/>
+      
+      
+        <rdf:li rdf:resource="http://www.fsf.org/news/fsf-40-auction-es"/>
+      
+      
+        <rdf:li rdf:resource="http://www.fsf.org/news/fsf-submits-amicus-brief-in-neo4j-v-suhy"/>
+      
+      
+        <rdf:li rdf:resource="http://www.fsf.org/news/fsf-40-auction"/>
+      
+      
+        <rdf:li rdf:resource="http://www.fsf.org/news/anchoring-the-fsf-in-its-values"/>
+      
+      
+        <rdf:li rdf:resource="http://www.fsf.org/news/fsf-is-working-on-freedom-in-machine-learning-applications"/>
+      
+      
+        <rdf:li rdf:resource="http://www.fsf.org/news/fsf-associate-members-to-assist-in-review-current-board-members"/>
+      
+      
+        <rdf:li rdf:resource="http://www.fsf.org/news/fsf-serves-on-nist"/>
+      
+      
+        <rdf:li rdf:resource="http://www.fsf.org/news/thank-you-odile-benassy-for-4-years-of-service-on-the-fsf-board-of-directors"/>
+      
+      
+        <rdf:li rdf:resource="http://www.fsf.org/news/lets-not-celebrate-crowdstrike-lets-point-to-a-better-way"/>
+      
+      
+        <rdf:li rdf:resource="http://www.fsf.org/news/fsf-adds-3-highly-qualified-board-members"/>
+      
+      
+        <rdf:li rdf:resource="http://www.fsf.org/news/fsf-adds-three-provisional-board-members"/>
+      
+      
+        <rdf:li rdf:resource="http://www.fsf.org/news/free-software-awards-winners-announced-bruno-haible-french-free-software-unit-nick-logozzo"/>
+      
+      
+        <rdf:li rdf:resource="http://www.fsf.org/news/fsf-to-be-deposed-in-sfc-v-vizio-updates-relevant-faq-entry"/>
+      
+    </rdf:Seq>
+  </items>
+
+</channel>
+
+
+  <item rdf:about="http://www.fsf.org/news/2025-auction-recap">
+    <title>GNU Head, Stallman's katana, and Internet Hall of Fame medal auctioned off to free software community members</title>
+    <link>http://www.fsf.org/news/2025-auction-recap</link>
+    <description>BOSTON, Massachusetts, USA (Monday, March 24, 2025) the Free 
+Software Foundation (FSF) today announced that, among other historical 
+free software artifacts, the GNU Head found a new home through an 
+unprecedented memorabilia auction.</description>
+    
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    <dc:date>2025-03-24T20:15:00Z</dc:date>
+    <dc:type>News Item</dc:type>
+  </item>
+
+
+  <item rdf:about="http://www.fsf.org/news/2025-silent-auction-pre-bid-phase">
+    <title>FSF launches pre-bid phase for silent memorabilia auction</title>
+    <link>http://www.fsf.org/news/2025-silent-auction-pre-bid-phase</link>
+    <description>BOSTON, Massachusetts, USA (March 11, 2025) -- The Free Software 
+Foundation (FSF) has published the memorabilia items for bidding in 
+the silent auction on the LibrePlanet wiki. Starting March 17, the FSF 
+will unlock items each day for bidding on the LibrePlanet wiki at 
+12:00 EDT until March 20. Bidding on all items will conclude at 15:00 
+EDT on March 21, 2025.</description>
+    
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    <dc:date>2025-03-11T20:50:00Z</dc:date>
+    <dc:type>News Item</dc:type>
+  </item>
+
+
+  <item rdf:about="http://www.fsf.org/news/fsf-40-auction-es">
+    <title>Subasta de la Free Software Foundation de dibujos originales de GNU, premios y tecnología histórica</title>
+    <link>http://www.fsf.org/news/fsf-40-auction-es</link>
+    <description></description>
+    
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    <dc:date>2025-03-03T20:31:57Z</dc:date>
+    <dc:type>News Item</dc:type>
+  </item>
+
+
+  <item rdf:about="http://www.fsf.org/news/fsf-submits-amicus-brief-in-neo4j-v-suhy">
+    <title>FSF defends user freedom in amicus brief submitted in Neo4j v. Suhy</title>
+    <link>http://www.fsf.org/news/fsf-submits-amicus-brief-in-neo4j-v-suhy</link>
+    <description>BOSTON, Massachusetts, USA (March 3, 2025) -- The Free Software 
+Foundation (FSF) announced today it has submitted an amicus brief in 
+the case entitled Neo4j, Inc., et al. v. Suhy, et al., Case No. 
+24-5538 in the United States Court of Appeals for the Ninth Circuit.  The amicus 
+brief addresses various misstatements and baseless assertions 
+regarding the FSF and the GNU Affero General Public License Version 3 
+(AGPLv3) -- the license at issue in the case -- found in a pleading 
+filed by Neo4j.</description>
+    
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    <dc:date>2025-03-03T17:40:00Z</dc:date>
+    <dc:type>News Item</dc:type>
+  </item>
+
+
+  <item rdf:about="http://www.fsf.org/news/fsf-40-auction">
+    <title>Free Software Foundation auction: Thank you all for joining!</title>
+    <link>http://www.fsf.org/news/fsf-40-auction</link>
+    <description>BOSTON, Massachusetts, USA (February 4, 2025) -- The Free Software 
+Foundation (FSF) turns forty this year. </description>
+    
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    <dc:date>2025-02-04T21:30:00Z</dc:date>
+    <dc:type>News Item</dc:type>
+  </item>
+
+
+  <item rdf:about="http://www.fsf.org/news/anchoring-the-fsf-in-its-values">
+    <title>Anchoring the FSF in its values</title>
+    <link>http://www.fsf.org/news/anchoring-the-fsf-in-its-values</link>
+    <description></description>
+    
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    <dc:date>2025-01-10T15:25:00Z</dc:date>
+    <dc:type>News Item</dc:type>
+  </item>
+
+
+  <item rdf:about="http://www.fsf.org/news/fsf-is-working-on-freedom-in-machine-learning-applications">
+    <title>FSF is working on freedom in machine learning applications</title>
+    <link>http://www.fsf.org/news/fsf-is-working-on-freedom-in-machine-learning-applications</link>
+    <description>BOSTON (October 22, 2024) -- The Free Software Foundation (FSF) has announced today that it is working on a statement of criteria for free machine learning applications, which will require the software, as well as the raw training data and associated scripts, to grant users the four freedoms.</description>
+    
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    <dc:date>2024-10-22T21:40:00Z</dc:date>
+    <dc:type>News Item</dc:type>
+  </item>
+
+
+  <item rdf:about="http://www.fsf.org/news/fsf-associate-members-to-assist-in-review-current-board-members">
+    <title>FSF associate members to assist in review of current board members</title>
+    <link>http://www.fsf.org/news/fsf-associate-members-to-assist-in-review-current-board-members</link>
+    <description></description>
+    
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    <dc:date>2024-10-21T20:00:00Z</dc:date>
+    <dc:type>News Item</dc:type>
+  </item>
+
+
+  <item rdf:about="http://www.fsf.org/news/fsf-serves-on-nist">
+    <title>Free Software Foundation to serve on "artificial intelligence" safety consortium</title>
+    <link>http://www.fsf.org/news/fsf-serves-on-nist</link>
+    <description> BOSTON (October 8, 2024) -- The Free Software Foundation (FSF) has
+announced that it is taking part in the US National Institute of
+Standards and Technology (NIST)'s consortium on the safety of
+(so-called) artificial intelligence, particularly with reference to
+"generative" AI systems. The FSF will ensure the free software
+perspective is adequately represented in these discussions. </description>
+    
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    <dc:date>2024-10-09T14:05:00Z</dc:date>
+    <dc:type>News Item</dc:type>
+  </item>
+
+
+  <item rdf:about="http://www.fsf.org/news/thank-you-odile-benassy-for-4-years-of-service-on-the-fsf-board-of-directors">
+    <title>Thank you Odile Bénassy for four years of service on the FSF Board of Directors! </title>
+    <link>http://www.fsf.org/news/thank-you-odile-benassy-for-4-years-of-service-on-the-fsf-board-of-directors</link>
+    <description>BOSTON (August 27, 2024) -- Free Software Foundation (FSF) Board Member Odile Bénassy has stepped down from the Board after four years of service.</description>
+    
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    <dc:date>2024-08-27T18:05:00Z</dc:date>
+    <dc:type>News Item</dc:type>
+  </item>
+
+
+  <item rdf:about="http://www.fsf.org/news/lets-not-celebrate-crowdstrike-lets-point-to-a-better-way">
+    <title> Let's not celebrate CrowdStrike -- let's point to a better way </title>
+    <link>http://www.fsf.org/news/lets-not-celebrate-crowdstrike-lets-point-to-a-better-way</link>
+    <description></description>
+    
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    <dc:date>2024-07-24T21:05:00Z</dc:date>
+    <dc:type>News Item</dc:type>
+  </item>
+
+
+  <item rdf:about="http://www.fsf.org/news/fsf-adds-3-highly-qualified-board-members">
+    <title>FSF adds three highly qualified board members</title>
+    <link>http://www.fsf.org/news/fsf-adds-3-highly-qualified-board-members</link>
+    <description></description>
+    
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    <dc:date>2024-06-26T17:00:09Z</dc:date>
+    <dc:type>News Item</dc:type>
+  </item>
+
+
+  <item rdf:about="http://www.fsf.org/news/fsf-adds-three-provisional-board-members">
+    <title>FSF adds three provisional board members</title>
+    <link>http://www.fsf.org/news/fsf-adds-three-provisional-board-members</link>
+    <description></description>
+    
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    <dc:date>2024-06-03T15:16:40Z</dc:date>
+    <dc:type>News Item</dc:type>
+  </item>
+
+
+  <item rdf:about="http://www.fsf.org/news/free-software-awards-winners-announced-bruno-haible-french-free-software-unit-nick-logozzo">
+    <title>Free Software Awards winners announced: Bruno Haible,  code.gouv.fr, Nick Logozzo</title>
+    <link>http://www.fsf.org/news/free-software-awards-winners-announced-bruno-haible-french-free-software-unit-nick-logozzo</link>
+    <description></description>
+    
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    
+      <dc:subject>Advancement of Free Software</dc:subject>
+    
+    
+      <dc:subject>Project of Social Benefit</dc:subject>
+    
+    
+      <dc:subject>New Contributor</dc:subject>
+    
+    <dc:date>2024-05-05T22:55:00Z</dc:date>
+    <dc:type>News Item</dc:type>
+  </item>
+
+
+  <item rdf:about="http://www.fsf.org/news/fsf-to-be-deposed-in-sfc-v-vizio-updates-relevant-faq-entry">
+    <title>FSF to be deposed in SFC v Vizio, updates relevant FAQ entry</title>
+    <link>http://www.fsf.org/news/fsf-to-be-deposed-in-sfc-v-vizio-updates-relevant-faq-entry</link>
+    <description></description>
+    
+    <dc:publisher>No publisher</dc:publisher>
+    <dc:creator></dc:creator>
+    <dc:rights></dc:rights>
+    <dc:date>2024-04-29T18:23:26Z</dc:date>
+    <dc:type>News Item</dc:type>
+  </item>
+
+
+
+</rdf:RDF>

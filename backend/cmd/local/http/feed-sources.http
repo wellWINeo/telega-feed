@@ -1,0 +1,23 @@
+
+@feedSourceId = 13
+
+### Get feed sources
+GET {{url}}/api/feed-sources
+X-UserId: {{userId}}
+
+### Get feed source by id
+GET {{url}}/api/feed-sources/{{feedSourceId}}
+X-UserId: {{userId}}
+
+### Update feed source
+PATCH {{url}}/api/feed-sources/{{feedSourceId}}
+X-UserId: {{userId}}
+Content-Type: application/json
+
+{
+  "name": "Updated feed source"
+}
+
+### Delete feed source id
+DELETE {{url}}/api/feed-sources/{{feedSourceId}}
+X-UserId: {{userId}}

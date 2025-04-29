@@ -1,0 +1,59 @@
+erDiagram
+    USER {
+        uuid id PK
+        string telegram_id UK
+    }
+
+    SOURCE {
+        uuid id PK
+        string feed_url UK
+        string type
+    }
+
+    SOURCE-USER-INFO {
+        uuid source_id "FK CK"
+        uuid user_id "FK CK"
+        string name
+        bool disabled
+    }
+
+    ARTICLE {
+        uuid id PK
+        timestamp added_at
+        timestamp published_at
+        uuid source_id FK
+        string title
+        string text
+        string url UK
+        string preview_url
+    }
+    
+    ARTICLE-USER-INFO {
+        uuid article_id "FK CK"
+        uuid user_id "FK CK"
+        bool starred
+        bool read
+    }
+
+    DIGEST {
+        uuid id PK
+        timestamp generated_at
+        string text
+    }
+
+    SUMMARY {
+        uuid id PK
+        timestamp generated_at
+        uuid article_id FK
+        string text
+    }
+
+    USER ||--o{ SOURCE-USER-INFO : controls
+    SOURCE-USER-INFO ||--|| SOURCE : "linked to"
+    SOURCE ||--o{ ARTICLE : has
+
+    ARTICLE-USER-INFO ||--|| ARTICLE : "linked to"
+    USER ||--o{ ARTICLE-USER-INFO : controls
+
+    ARTICLE ||--o{ SUMMARY : "describes by"
+

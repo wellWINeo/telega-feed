@@ -1,0 +1,262 @@
+openapi: 3.1.0
+info:
+  title: TelegaFeed
+  description: TelegaFeed's API
+  version: 1.0.0
+servers:
+  - url: 'https://localhost:8080'
+security:
+  - localUserId: []
+
+paths:
+  /api/feed:
+    get:
+      tags: [Feed]
+      description: Returns user's feed
+      responses:
+        200:
+          description: List of articles in feed
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Article'
+  /api/feed/digest:
+    get:
+      tags: [LLM]
+      description: Get daily digest for feed
+      responses:
+        200:
+          description: Daily digest
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Digest'
+
+  /api/articles/{id}:
+    parameters:
+      - name: articleId
+        in: path
+        description: Article's id
+        required: true
+        schema:
+          type: number
+          format: string
+    patch:
+      tags: [Feed]
+      summary: Update article
+      operationId: updateArticleId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                starred:
+                  type: boolean
+                read:
+                  type: boolean
+      responses:
+        200:
+          description: Success
+        404:
+          description: Article not found
+
+  /api/articles/{id}/summary:
+    parameters:
+      - name: articleId
+        in: path
+        description: Article's id
+        required: true
+        schema:
+          type: number
+          format: int64
+    get:
+      tags: [LLM]
+      summary: Get summary for article
+      operationId: getArticleSummary
+      parameters:
+        - name: force
+          in: query
+          description: Regenerate if forced
+          required: false
+          schema:
+            type: boolean
+      responses:
+        200:
+          description: Article's summary
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Summary'
+
+  /api/feed-sources:
+    post:
+      tags: [FeedSources]
+      summary: Add feed source
+      operationId: addFeedSource
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FeedSource'
+      responses:
+        200:
+          description: Added feed source
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeedSource'
+    get:
+      tags: [FeedSources]
+      summary: Get feed sources
+      operationId: getFeedSources
+      responses:
+        200:
+          description: List of feed sources
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FeedSource'
+
+  /api/feed-sources/{id}:
+    parameters:
+      - name: Feed source's id
+        in: path
+        description: Article's id
+        required: true
+        schema:
+          type: number
+          format: int64
+
+    get:
+      tags: [FeedSources]
+      summary: Get feed source by id
+      operationId: getFeedSourceById
+      responses:
+        200:
+          description: Feed source
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/FeedSource'
+        404:
+          description: Feed source not found
+
+    patch:
+      tags: [FeedSources]
+      summary: Update feed sources
+      operationId: updateFeedSource
+      requestBody:
+        description: Fields to update
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                feed_url:
+                  type: string
+                disabled:
+                  type: boolean
+      responses:
+        200:
+          description: Updated feed source
+        404:
+          description: Feed source to update not found
+
+    delete:
+      tags: [FeedSources]
+      summary: Delete feed source
+      operationId: deleteFeedSource
+      responses:
+        200:
+          description: Feed source deleted
+        404:
+          description: Feed source to delete not found
+
+components:
+  schemas:
+    Article:
+      type: object
+      properties:
+        id:
+          type: number
+        added_at:
+          type: string
+          format: date-time
+        published_at:
+          type: string
+          format: date-time
+        title:
+          type: string
+        text:
+          type: string
+        url:
+          type: string
+          format: uri
+        preview_url:
+          type: string
+          format: uri
+        starred:
+          type: boolean
+      required:
+        - id
+        - added_at
+        - published_at
+        - title
+        - text
+        - url
+        - preview_url
+        - starred
+    FeedSource:
+      type: object
+      properties:
+        id:
+          type: number
+          format: int64
+        name:
+          type: string
+        feed_url:
+          type: string
+          format: uri
+        disabled:
+          type: boolean
+      required:
+        - id
+        - name
+        - feed_url
+        - disabled
+    Digest:
+      type: object
+      properties:
+        text:
+          type: string
+      required:
+        - text
+    Summary:
+      type: object
+      properties:
+        id:
+          type: number
+          format: int64
+        generated_at:
+          type: string
+          format: date-time
+        text:
+          type: string
+      required:
+        - id
+        - generated_at
+        - text
+
+  securitySchemes:
+    localUserId:
+      description: Internal user ID
+      type: apiKey
+      name: X-UserId
+      in: header

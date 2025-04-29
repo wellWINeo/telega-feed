@@ -1,0 +1,16 @@
+
+### Get feed
+GET {{url}}/api/feed
+X-UserId: {{userId}}
+
+### Update article
+@articleId = 13
+
+PATCH {{url}}/api/articles/{{articleId}}
+X-UserId: {{userId}}
+Content-Type: application/json
+
+{
+  "starred": true,
+  "read": true
+}

@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="koi8-r"?>
+<rss version="2.0">
+<channel>
+    <title>OpenNews.opennet.ru: Общая лента новостей</title>
+    <description>OpenNews - Новости мира открытых систем (Общая лента новостей)</description>
+    <link>https://www.opennet.ru/opennews/</link>
+<item>
+    <title>Успехи в портировании графических драйверов NVIDIA для ОС Haiku</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63066</link>
+    <pubDate>Sun, 13 Apr 2025 17:13:28 +0300</pubDate>
+    <description>Илья Чугин (x512) и Герасим Троеглазов (3dEyes) продемонстрировали новые достижения  в портировании для ОС Haiku графических драйверов от компании NVIDIA. Порт развивается на базе открытых модулей для ядра Linux, публикуемых компанией NVIDIA и задействованных в её проприетарных драйверах, а также работающего в пространстве пользователя Vulkan-драйвера NVK.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63066</guid>
+</item>
+<item>
+    <title>Выпуск графического редактора Pinta 3.0</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63064</link>
+    <pubDate>Sun, 13 Apr 2025 11:18:59 +0300</pubDate>
+    <description>После двух лет разработки представлен релиз открытого растрового графического редактора Pinta 3.0, основанного в 2010 году в качестве  попытки создать более простой аналог программы Paint.NET, написанный с использованием GTK. Редактор ориентирован на начинающих пользователей и предоставляет базовый набор возможностей для рисования и обработки изображений. Интерфейс по возможности упрощён. Редактор поддерживает неограниченный буфер отката изменений, позволяет работать с несколькими слоями, укомплектован набором инструментов для наложения различных эффектов и корректировки изображений. Код Pinta распространяется под лицензией MIT. Проект написан на языке C# с использованием .NET  и обвязки Gtk#. Бинарные сборки подготовлены для Linux (Flatpak,  Snap), macOS и Windows.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63064</guid>
+</item>
+<item>
+    <title>Выпуск Wine-wayland 10.5</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63063</link>
+    <pubDate>Sun, 13 Apr 2025 10:54:47 +0300</pubDate>
+    <description>Опубликован выпуск проекта Wine-wayland 10.5, развивающего набор патчей для использования Wine  в окружениях на базе протокола Wayland, без применения XWayland и компонентов X11. Частично, многие наработки  Wine-wayland, среди которых драйвер winewayland.drv, уже перенесены в основной состав Wine.  Новый выпуск примечателен синхронизацией с веткой Wine 10 (задействован Wine 10.5) и обновлением версий DXVK, VKD3D и Mangohud. Вместо FSYNC задействован недавно принятый в состав ядра Linux драйвер ntsync, реализующий набор примитивов для синхронизации, применяемых в ядре Windows NT. Размер установочных сборок сокращён со 120 до 99 МБ.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63063</guid>
+</item>
+<item>
+    <title>ИИ как новый вектор атаки на разработчиков ПО</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63062</link>
+    <pubDate>Sat, 12 Apr 2025 19:06:53 +0300</pubDate>
+    <description>Инструменты программирования с поддержкой искусственного интеллекта (ИИ) всё больше влияют на разработку программного обеспечения и приводят к проблеме в безопасности: генерации несуществующих имён пакетов. ИИ модели как коммерческие, так и  открытые, иногда предлагают код с указанием пакетов, которых не существует. Согласно недавним исследованиям, это происходит в 5.2% случаев у коммерческих моделей и в 21.7% - у открытых моделей.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63062</guid>
+</item>
+<item>
+    <title>Утверждено обеспечение повторяемых сборок в Fedora 43</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63061</link>
+    <pubDate>Sat, 12 Apr 2025 13:42:49 +0300</pubDate>
+    <description>Комитет FESCo (Fedora Engineering Steering Committee), отвечающий за техническую часть разработки дистрибутива Fedora Linux, утвердил проект по обеспечению повторяемых сборок пакетов в осеннем выпуске Fedora 43. Целью инициативы заявлена возможность применения повторяемых сборок для не менее, чем 99% пакетов в репозитории.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63061</guid>
+</item>
+<item>
+    <title>Прогресс в разработке транслятора из Rust в код на Cи и .NET IR</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63060</link>
+    <pubDate>Sat, 12 Apr 2025 13:08:04 +0300</pubDate>
+    <description>Разработчики бэкенда к компилятору rustc, позволяющему транслировать код с языка Rust в представление на языке Си, объявили об успешном прохождении 95.9% тестов. Два месяца назад уровень прохождения тестов оценивался в 92%. Отмечается, что остаются непройденными 64 тестов, все из которых связаны с решением типовых проблем, в устранении которых не возникнут сложности. Код бэкенда распространяется под лицензией Apache 2.0.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63060</guid>
+</item>
+<item>
+    <title>В KDE реализована начальная поддержка восстановления сеансов на базе Wayland</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63059</link>
+    <pubDate>Sat, 12 Apr 2025 11:15:38 +0300</pubDate>
+    <description>Нейт Грэм (Nate Graham), разработчик, занимающийся контролем качества в проекте KDE, опубликовал очередной отчёт о разработке KDE. Наиболее заметным изменением стало добавление в кодовую базу композитного менеджера KWin начальной поддержки  Wayland-протокола xdg-session-management. Изменение позволяет восстанавливать состояние окон прерванного сеанса в окружениях на основе протокола Wayland, например, в случае аварийного завершения композитного сервера или приложения. Изменение планируют включить в состав релиза KDE Plasma 6.4. Из возможностей пока поддерживается только восстановление размера и позиции окон, а также их привязки к виртуальным рабочим столам. Содержимое окон пока не восстанавливается, но данную функцию намерены реализовать на следующем этапе.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63059</guid>
+</item>
+<item>
+    <title>Выпуск Angie 1.9.0, форка Nginx </title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63058</link>
+    <pubDate>Fri, 11 Apr 2025 21:18:06 +0300</pubDate>
+    <description>Представлен выпуск высокопроизводительного HTTP-сервера и многопротокольного прокси-сервера Angie 1.9.0, ответвлённого от Nginx группой бывших разработчиков проекта, уволившихся из компании F5 Network. Исходные тексты Angie доступны под лицензией BSD.  Проект получил сертификаты совместимости с российскими операционными системами Ред ОС, Astra Linux Special Edition, Роса Хром  Сервер, Альт и  ФСТЭК-версии Альт.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63058</guid>
+</item>
+<item>
+    <title>CPU AMD Zen 5 подвержены уязвимости, допускающей изменение микрокода и обход изоляции SEV-SNP   </title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63055</link>
+    <pubDate>Fri, 11 Apr 2025 13:18:09 +0300</pubDate>
+    <description>Компания AMD включила процессоры на базе микроархитектуры Zen 5 в список продуктов, подверженных уязвимости  EntrySign, позволяющей обойти механизм проверки цифровой подписи при обновлении микрокода. Изначально предполагалось, что уязвимость затрагивает только CPU AMD на базе 1-4 поколений микроархитектуры Zen. Таким образом уязвимость оказалась применима к таким процессорам, как  Ryzen 9000 (Granite Ridge), EPYC 9005 (Turin), Ryzen AI 300 (Strix Halo, Strix Point, Krackan Point) и  Ryzen 9000HX (Fire Range).</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63055</guid>
+</item>
+<item>
+    <title>Выпуск языка программирования Crystal 1.16</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63052</link>
+    <pubDate>Fri, 11 Apr 2025 10:57:44 +0300</pubDate>
+    <description>Опубликован релиз языка программирования Crystal 1.16, разработчики которого пытаются совместить удобство разработки на языке Ruby с высокой производительностью приложений, свойственной языку Си. Синтаксис Crystal близок к языку Ruby, но не полностью совместим с ним, несмотря на то, что без переработки выполняются некоторые ruby-программы. Код компилятора написан на языке Crystal и распространяется под лицензией Apache 2.0.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63052</guid>
+</item>
+<item>
+    <title>Уязвимости в сетевом конфигураторе ConnMan и DNS-библиотеке c-ares </title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63051</link>
+    <pubDate>Fri, 11 Apr 2025 10:33:33 +0300</pubDate>
+    <description>В сетевом конфигураторе ConnMan, получившем распространение во встраиваемых Linux-системах, автомобильных платформах и устройствах интернета вещей, выявлена уязвимость (CVE-2025-32743), которая потенциально может привести к выполнению кода при обработке специально оформленных ответов от DNS-сервера. Проблеме присвоен критический уровень опасности (9.1 из 10). Уязвимость проявляется вплоть до актуального выпуска ConnMan 1.44 и пока остаётся неисправленной.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63051</guid>
+</item>
+<item>
+    <title>Выпуск утилит GNU grep 3.12, gzip 1.14, diffutils 3.12 и coreutils 9.7</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63050</link>
+    <pubDate>Fri, 11 Apr 2025 09:01:38 +0300</pubDate>
+    <description>Проект GNU опубликовал  релиз пакета gzip 1.14, включающего утилиты gzip, gunzip, zmore и zcat для сжатия и распаковки данных при помощи алгоритма Deflate. В новом выпуске существенно ускорены операции распаковки.  На системах x86_64, поддерживающих процессорные инструкции PCLMUL, прирост производительности достигает 40%, а на системах без поддержки PCLMUL  - до 20%.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63050</guid>
+</item>
+<item>
+    <title>Выпуск Cozystack 0.30, открытой PaaS-платформы на базе Kubernetes </title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63047</link>
+    <pubDate>Thu, 10 Apr 2025 23:21:23 +0300</pubDate>
+    <description>Доступен  выпуск свободной PaaS-платформы Cozystack 0.30.0, построенной на базе Kubernetes. Проект нацелен на предоставление готовой платформы для хостинг-провайдеров и фреймворка для построения частных и публичных облаков. Платформа устанавливается напрямую на серверы и охватывает все аспекты подготовки инфраструктуры для предоставления управляемых сервисов.  Cozystack позволяет запускать и предоставлять кластеры Kubernetes, базы данных и виртуальные машины. Код платформы доступен на GitHub и распространяется под лицензией Apache-2.0.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63047</guid>
+</item>
+<item>
+    <title>Опубликованы результаты аудита безопасности кодовой базы PHP</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63049</link>
+    <pubDate>Thu, 10 Apr 2025 22:54:25 +0300</pubDate>
+    <description>Фонд OSTIF (Open Source Technology Improvement Fund), созданный с целью усиления защищённости открытых проектов, объявил о завершении независимого аудита критических компонентов основной  кодовой базы проекта PHP. Работа выполнена французской компанией QuarksLab, которая  уже привлекалась для аудита проектов OpenVPN, VeraCrypt и OpenSSL. В ходе проверки выявлено 27 проблем, из которых 17 имеют отношение к безопасности, а 10 носят информационный характер.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63049</guid>
+</item>
+<item>
+    <title>Дистрибутив openSUSE опубликовал альтернативный инсталлятор Agama 13</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63046</link>
+    <pubDate>Thu, 10 Apr 2025 12:56:15 +0300</pubDate>
+    <description>Разработчики проекта openSUSE представили инсталлятор Agama 13, разрабатываемый для замены классического интерфейса установки SUSE и openSUSE, и примечательный отделением пользовательского интерфейса от внутренних компонентов YaST. Agama поддерживает использование различных фронтэндов, например, фронтэнда для управления установкой через web-интерфейс. Код компонентов инсталлятора распространяется под лицензией GPLv2 и написан на языках Ruby, Rust и JavaScript/TypeScript.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63046</guid>
+</item>
+<item>
+    <title>Искажение авторства патчей Rust-обвязок к подсистеме DRM</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63044</link>
+    <pubDate>Thu, 10 Apr 2025 10:45:44 +0300</pubDate>
+    <description>Данило Круммрих (Danilo Krummrich), один из сопровождающих драйвер Nouveau, подготовил для включения в ядро Linux набор патчей с реализацией обвязок над подсистемой DRM (Direct Rendering Manager), позволяющих создавать графические драйверы на языке Rust. В примечании Данило указал, что в качестве основы предложенных изменений использованы наработки Лины Асахи (Asahi Lina), разработавшей драйвер drm-asahi для GPU Apple AGX, используемых в серии чипов Apple Silicon.  Лина, создавшая первый вариант опубликованного набора патчей, была помечена как основной автор обвязки над DRM ioctl и соавтор остальных абстракций для создания драйверов.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63044</guid>
+</item>
+<item>
+    <title>Выпуск Proxmox VE 8.4, дистрибутива для организации работы виртуальных серверов </title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63043</link>
+    <pubDate>Wed, 09 Apr 2025 23:03:01 +0300</pubDate>
+    <description>Опубликован релиз Proxmox Virtual Environment 8.4, специализированного Linux-дистрибутива на базе Debian GNU/Linux, нацеленного на развертывание и обслуживание виртуальных серверов с использованием LXC и KVM, и способного выступить в роли замены таких продуктов, как VMware vSphere, Microsoft Hyper-V и Citrix Hypervisor. Размер установочного iso-образа 1.5 ГБ.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63043</guid>
+</item>
+<item>
+    <title>Релиз OpenSSH 10.0</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63042</link>
+    <pubDate>Wed, 09 Apr 2025 21:54:43 +0300</pubDate>
+    <description>Опубликован релиз OpenSSH 10.0, открытой реализации клиента и сервера для работы по протоколам SSH 2.0 и SFTP. Основные.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63042</guid>
+</item>
+<item>
+    <title>Выпуск браузеров Pale Moon 33.7.0 и Firefox 137.0.1</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63037</link>
+    <pubDate>Wed, 09 Apr 2025 14:35:24 +0300</pubDate>
+    <description>Опубликован релиз web-браузера Pale Moon 33.7.0, ответвившегося от кодовой базы Firefox для обеспечения более высокой эффективности работы, сохранения классического интерфейса, минимизации потребления памяти и  предоставления дополнительных возможностей по настройке.  Сборки Pale Moon формируются для Windows и Linux (x86_64). Код проекта распространяется под лицензией MPLv2 (Mozilla Public License).</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63037</guid>
+</item>
+<item>
+    <title>Релиз операционной системы FreeDOS 1.4</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63041</link>
+    <pubDate>Wed, 09 Apr 2025 12:09:26 +0300</pubDate>
+    <description>После трёх лет разработки опубликована стабильная версия операционной системы FreeDOS 1.4, развивающей свободную альтернативу DOS с окружением из утилит GNU. Код FreeDOS распространяется под лицензией  GPLv2. Для загрузки  доступны сборки для загрузки с дискет, CD и USB Flash, размером от 17 МБ до 638МБ.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63041</guid>
+</item>
+<item>
+    <title>Альфа-выпуск пакетного менеджера RPM 6.0</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63040</link>
+    <pubDate>Tue, 08 Apr 2025 21:57:35 +0300</pubDate>
+    <description>Сформирован первый альфа-выпуск пакетного менеджера RPM 6.0, который будет задействован в осеннем выпуске дистрибутива Fedora Linux 43.  Проект развивается компанией Red Hat и используется в таких дистрибутивах, как RHEL, Fedora, SUSE, openSUSE, ALT Linux, Rosa Linux, OpenMandriva, Mageia, PCLinuxOS и Tizen. Код проекта распространяется под лицензиями GPLv2 и LGPLv2. Версии RPM 5 пропущена для исключения пересечений с проектом RPM5, который не связан с RPM от Red Hat и развивался независимыми разработчиками.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63040</guid>
+</item>
+<item>
+    <title>Выпуск криптографической библиотеки OpenSSL 3.5.0 </title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63039</link>
+    <pubDate>Tue, 08 Apr 2025 21:31:04 +0300</pubDate>
+    <description>Состоялся релиз библиотеки OpenSSL 3.5.0 с реализацией протоколов SSL/TLS и различных алгоритмов шифрования.  OpenSSL 3.5 отнесён к выпускам с длительным сроком поддержки (LTS), обновления для которых выпускаются в течение 5 лет (до апреля 2030 года). Поддержка прошлых веток  OpenSSL 3.3, 3.2  и 3.0 LTS продлится до апреля 2026 года, ноября 2025 года и сентября 2026 года соответственно. Код проекта распространяется под лицензией Apache 2.0.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63039</guid>
+</item>
+<item>
+    <title>Выпуск Wayland-Protocols 1.43</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63038</link>
+    <pubDate>Tue, 08 Apr 2025 19:52:33 +0300</pubDate>
+    <description>Опубликован выпуск пакета wayland-protocols 1.43, содержащего набор протоколов и расширений, дополняющих базовый протокол Wayland и предоставляющих возможности, необходимые для построения композитных серверов и пользовательских окружений.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63038</guid>
+</item>
+<item>
+    <title>Уязвимости в GNOME Help и GIMP, позволяющие выполнить код при открытии файлов</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63035</link>
+    <pubDate>Tue, 08 Apr 2025 10:07:36 +0300</pubDate>
+    <description>В просмотрщике Yelp, применяемом по умолчанию в GNOME для работы со справочными руководствами (GNOME Help), выявлена уязвимость (CVE-2025-3155), позволяющая выполнить произвольный JavaScript-код при открытии специально оформленных page-файлов. Выполнение подобных скриптов даёт возможность отправить файлы пользователя на сервер атакующего.  Проследить за устранением уязвимости в дистрибутивах можно на следующих страницах: Debian, Ubuntu, RHEL, SUSE/openSUSE, Fedora, Arch, FreeBSD.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63035</guid>
+</item>
+<item>
+    <title>Выпуск web-браузера Chrome 135</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63008</link>
+    <pubDate>Mon, 07 Apr 2025 13:17:05 +0300</pubDate>
+    <description>Компания Google опубликовала релиз web-браузера Chrome 135. Одновременно доступен  стабильный выпуск свободного проекта Chromium, выступающего основой Chrome. Браузер Chrome отличается от Chromium использованием логотипов Google,  наличием системы отправки уведомлений в случае краха, модулями для воспроизведения защищённого от копирования видеоконтента (DRM), системой автоматической установки обновлений, постоянным включением Sandbox-изоляции, поставкой ключей к  Google API и передачей RLZ-параметров при поиске. Для тех, кому необходимо больше времени на обновление, отдельно поддерживается ветка Extended Stable, сопровождаемая 8 недель. Следующий выпуск Chrome 136 запланирован на 29 апреля.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63008</guid>
+</item>
+<item>
+    <title>В состав macOS включён openrsync от проекта OpenBSD</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63033</link>
+    <pubDate>Mon, 07 Apr 2025 09:49:49 +0300</pubDate>
+    <description>В опубликованном на прошлой неделе обновлении macOS 15.4  компания Apple заменила утилиту  rsync на альтернативную реализацию openrsync, развиваемую проектом OpenBSD. Исполняемый файл /usr/bin/rsync в macOS теперь ссылается на openrsync. Предполагается, причиной замены стали недавно выявленные проблемы с безопасностью в rsync, работа по сокращению компонентов под копилефт лицензиями и желание избавиться от устаревшей версии rsync, обновить которую не получается из-за лицензионной политики.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63033</guid>
+</item>
+<item>
+    <title>Для Nim 3.0 развивается новый компиляторный бэкенд на основе формата NIF</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63031</link>
+    <pubDate>Sun, 06 Apr 2025 18:29:32 +0300</pubDate>
+    <description>В процессе разработки версии 3.0 языка программирования Nim ведётся работа над обновлённым компилятором, использующим промежуточный формат NIF (Nim Intermediate Format). В новом компиляторе будет решено несколько технических задач, среди которых улучшение инкрементальной компиляции и упрощение управления зависимостями между модулями. Дата релиза Nim 3.0 пока не определена.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63031</guid>
+</item>
+<item>
+    <title>NVIDIA опубликовала движок PhysX 5.6.0 и открыла код Flow GPU</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63030</link>
+    <pubDate>Sun, 06 Apr 2025 09:11:03 +0300</pubDate>
+    <description>Компания NVIDIA опубликовала  релиз движка симуляции физических процессов PhysX 5.6 и связанного с ним инструментария PhysX SDK. Одновременно доступна новая версия библиотеки моделирования жидкостей Flow 2.2.0. Код проекта распространяется под лицензией BSD-3 и поддерживает платформы Linux, macOS,  iOS, Windows и Android.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63030</guid>
+</item>
+<item>
+    <title>Выпуск компилятора языка D 2.111</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63029</link>
+    <pubDate>Sun, 06 Apr 2025 07:29:03 +0300</pubDate>
+    <description>Опубликован релиз DMD 2.111, эталонного компилятора для языка D.  Код компилятора распространяется под свободной лицензией BSL (Boost Software License). Поддерживаются системы Linux, Windows, macOS и FreeBSD.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63029</guid>
+</item>
+<item>
+    <title>Выпуск Coreboot 25.03, открытой альтернативы проприетарным прошивкам</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63027</link>
+    <pubDate>Sat, 05 Apr 2025 11:16:11 +0300</pubDate>
+    <description>Представлен выпуск проекта CoreBoot 25.03, разрабатывающего свободную альтернативу проприетарным прошивкам и BIOS. Код проекта распространяется под лицензией GPLv2.  В состав новой версии включено  1001 изменение. В подготовке релиза принял участие 131 разработчик.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63027</guid>
+</item>
+<item>
+    <title>Релиз пакетного менеджера APT 3.0.0</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63026</link>
+    <pubDate>Sat, 05 Apr 2025 09:46:06 +0300</pubDate>
+    <description>Сформирован релиз инструментария для управления пакетами APT 3.0.0 (Advanced Package Tool), который вобрал изменения, накопленные в экспериментальной ветке 2.9.  Новый выпуск принят в ветку Debian Unstable и в ближайшее время будет интегрирован в репозиторий Debian Testing, в котором развивается релиз Debian 13 и уже используется экспериментальная ветка APT 2.9, а также будет добавлен в пакетную базу Ubuntu.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63026</guid>
+</item>
+<item>
+    <title>Выпуск Wine 10.5</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63024</link>
+    <pubDate>Sat, 05 Apr 2025 08:43:54 +0300</pubDate>
+    <description>Опубликован экспериментальный выпуск открытой реализации Win32 API - Wine 10.5. С момента выпуска  10.4 было закрыто 22 отчёта об ошибках и внесено 260 изменений.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63024</guid>
+</item>
+<item>
+    <title>Опубликован Valkey 8.1, форк СУБД Redis от Amazon, Google, Oracle и Ericsson </title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63023</link>
+    <pubDate>Fri, 04 Apr 2025 22:57:38 +0300</pubDate>
+    <description>Состоялся релиз СУБД  Valkey 8.1, ответвившейся от  СУБД Redis после её перехода на проприетарную лицензию.  Проект развивается на нейтральной площадке под покровительством организации Linux Foundation при участии разработчиков из таких компаний, как Amazon, Google, Oracle, Ericsson и Snap. К разработке Valkey присоединился Маделин Олсон (Madelyn Olson), бывший мэйнтейнер Redis. Код проекта написан на языке Си и распространяется под лицензией BSD. Поддерживается работа в Linux, macOS, OpenBSD, NetBSD и FreeBSD.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63023</guid>
+</item>
+<item>
+    <title>Выпуск дистрибутива Tails 6.14</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63022</link>
+    <pubDate>Fri, 04 Apr 2025 21:33:19 +0300</pubDate>
+    <description>Представлен релиз специализированного дистрибутива Tails 6.14.1 (The Amnesic Incognito Live System), развиваемого в составе проекта Tor. Дистрибутив основан на пакетной базе Debian 12, поставляется с рабочим столом GNOME 43 и предназначен для анонимного выхода в сеть при помощи инструментария Tor. Все соединения, кроме трафика через сеть Tor, по умолчанию блокируются пакетным фильтром. Для хранения пользовательских данных в режиме сохранения пользовательских данных между запусками применяется шифрование.  Для загрузки подготовлен iso-образ, способный работать в Live-режиме, размером 1 ГБ.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63022</guid>
+</item>
+<item>
+    <title>Третий экспериментальный выпуск среды рабочего стола Orbitiny</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63021</link>
+    <pubDate>Fri, 04 Apr 2025 13:31:23 +0300</pubDate>
+    <description>Представлен третий выпуск среды рабочего стола Orbitiny Desktop, написанной с нуля с использованием фреймворка Qt. Проект пытается совместить некоторые инновационные идеи, которые раньше не встречались в пользовательских окружениях, с традиционными элементами, такими как панель, меню и размещение пиктограмм на рабочем столе. Код написан на языке C++ и распространяется под лицензией GPL.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63021</guid>
+</item>
+<item>
+    <title>Представлен openHalo, инструментарий для миграции с MySQL на PostgreSQL</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63020</link>
+    <pubDate>Fri, 04 Apr 2025 13:13:37 +0300</pubDate>
+    <description>Опубликован код инструментария openHalo, предоставляющего прослойку для упрощения  переноса приложений, изначально написанных для MySQL, на использование СУБД PostgreSQL. Проект выполнен в виде прокси, прозрачно транслирующего запросы к MySQL в запросы к PostgreSQL и выполняющий обратное преобразование для ответов.  Проект написан на языке Си и распространяется под лицензией GPLv3.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63020</guid>
+</item>
+<item>
+    <title>Выпуск видеопроигрывателя Celluloid 0.28</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63018</link>
+    <pubDate>Fri, 04 Apr 2025 12:37:29 +0300</pubDate>
+    <description>Доступен выпуск видеопроигрывателя Celluloid 0.28 (бывший GNOME MPV), предоставляющего графический интерфейс на базе библиотеки GTK для консольного видеоплеера MPV. Плеер может использовать файлы конфигурации MPV, поддерживает протокол управления воспроизведением MPRIS2, полностью совместим с Wayland. Celluloid применяется в дистрибутивах Linux Mint, Ubuntu MATE, Ubuntu Cinnamon, EasyOS, AntiX  и Solus в качестве видеопроигрывателя по умолчанию. Код написан на языке C и распространяется под лицензией GPLv3.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63018</guid>
+</item>
+<item>
+    <title>Билл Гейтс опубликовал код первого продукта Microsoft</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63019</link>
+    <pubDate>Fri, 04 Apr 2025 11:55:13 +0300</pubDate>
+    <description>В честь 50-летия со дня основания компании  Microsoft, зарегистрированной 4 апреля 1975 года, Билл Гейтс опубликовал исходные тексты интерпретатора Altair BASIC.  Altair BASIC был выпущен для микрокомпьютеров MITS Altair 8800  и стал первым продуктом компании Microsoft. Интерпретатор занимает менее 4 КБ и может работать на системах с  4 КБ ОЗУ.  У Билла Гейтса и Пола Аллена не было возможности купить  компьютер Altair 8800, поэтому при разработке и тестировании они использовали самодельный эмулятор процессора Intel 8080, запускаемый на системе  PDP-10, к которой у них был доступ. Код предложен для загрузки в виде PDF-файла (100 МБ) со сканом бумажных распечаток ассемблерного кода.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63019</guid>
+</item>
+<item>
+    <title>Обновление XZ Utils 5.8.1 с устранением уязвимости</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63017</link>
+    <pubDate>Fri, 04 Apr 2025 10:08:19 +0300</pubDate>
+    <description>Опубликован выпуск пакета XZ Utils 5.8.1, включающего библиотеку liblzma и утилиты для работы со сжатыми данными в формате &quot;.xz&quot;. XZ Utils 5.8.1 стал первым значительным выпуском после инцидента с выявлением бэкдора, организующего вход через sshd. На прошлой неделе в Git был создан тег 5.8.0, но релиз не был объявлен официально из-за выявленных после публикации тега проблем с производительностью и совместимостью со старыми версиями GNU make.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63017</guid>
+</item>
+<item>
+    <title>Первые публичные версии Nelm, форка Helm для развёртывания приложений в Kubernetes</title>
+    <link>https://www.opennet.ru/opennews/art.shtml?num=63016</link>
+    <pubDate>Fri, 04 Apr 2025 07:39:59 +0300</pubDate>
+    <description>Объявлено о готовности к массовому использованию открытого проекта Nelm, позиционируемого как &quot;альтернатива Helm 3&quot;. Nelm зародился в процессе разработки CI/CD-утилиты werf  как форк Helm, пакетного менеджера для Kubernetes, который использует &quot;чарты&quot;, чтобы развёртывать приложения в K8s. Код Nelm  доступен на GitHub под лицензией Apache 2.0.</description>
+    <guid>https://www.opennet.ru/opennews/art.shtml?num=63016</guid>
+</item>
+</channel>
+</rss>
