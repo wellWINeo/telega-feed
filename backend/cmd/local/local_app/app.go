@@ -12,6 +12,7 @@ import (
 	"fmt"
 	"github.com/labstack/echo/v4"
 	"github.com/ydb-platform/ydb-go-sdk/v3"
+	"os"
 	"time"
 )
 
@@ -47,7 +48,12 @@ func (app *LocalApp) Build() error {
 
 	defer cancelFunc()
 
-	db, err := ydb.Open(ctx, "grpc://127.0.0.1:2136/local")
+	dsn := os.Getenv("YDB_CONNECTIONSTRING")
+	if dsn == "" {
+		dsn = "grpc://127.0.0.1:2136/local"
+	}
+
+	ydbDB, err := ydb.Open(ctx, dsn)
 	if err != nil {
 		return err
 	}
@@ -55,31 +61,34 @@ func (app *LocalApp) Build() error {
 	// infra
 	app.llmProvider = providers.NewEchoLlmProvider()
 	app.fetchProvidersMap = map[string]abstractproviders.FetchProvider{
-		"rss": providers.NewRssProvider(),
+		"rss":  providers.NewRssProvider(),
+		"atom": providers.NewAtomProvider(),
+		"rdf":  providers.NewRDFProvider(),
 	}
-	app.digestsRepository = repositories.NewYdbDigestsRepository(db)
-	app.feedRepository = repositories.NewYdbFeedRepository(db)
-	app.feedSourceRepository = repositories.NewYdbFeedSourceRepository(db)
-	app.summariesRepository = repositories.NewYdbSummariesRepository(db)
-	app.usersRepository = repositories.NewYdbUsersRepository(db)
+	app.digestsRepository = repositories.NewYdbDigestsRepository(ydbDB)
+	app.feedRepository = repositories.NewYdbFeedRepository(ydbDB)
+	app.feedSourceRepository = repositories.NewYdbFeedSourceRepository(ydbDB)
+	app.summariesRepository = repositories.NewYdbSummariesRepository(ydbDB)
+	app.usersRepository = repositories.NewYdbUsersRepository(ydbDB)
 
 	// services
-	app.feedSourcesService = app.feedSourceRepository
 	app.fetchService = services.NewFetchService(app.fetchProvidersMap)
+	app.feedSourcesService = services.NewFeedSourcesService(app.fetchService, app.feedSourceRepository)
 	app.llmService = services.NewLlmService(app.digestsRepository, app.summariesRepository, app.feedRepository, app.llmProvider)
 	app.feedService = services.NewFeedService(app.llmService, app.fetchService, app.feedRepository, app.feedSourceRepository, app.usersRepository)
 
 	// endpoints
 	app.endpoints = []api.Endpoint{
-		api.NewAddFeedSourceEndpoint(app.feedSourcesService),
-		api.NewDeleteFeedSourceEndpoint(app.feedSourcesService),
-		api.NewGetArticleSummaryEndpoint(app.llmService),
-		api.NewGetFeedEndpoint(app.feedService),
-		api.NewGetFeedDigestEndpoint(app.llmService),
-		api.NewGetFeedSourceEndpoint(app.feedSourcesService),
-		api.NewGetFeedSourcesEndpoint(app.feedSourcesService),
-		api.NewPatchArticleEndpoint(app.feedService),
-		api.NewPatchFeedSourceEndpoint(app.feedSourcesService),
+		api.NewAddFeedSourceEndpoint(app.feedSourcesService, app.usersRepository),
+		api.NewDeleteFeedSourceEndpoint(app.feedSourcesService, app.usersRepository),
+		api.NewGetArticleSummaryEndpoint(app.llmService, app.usersRepository),
+		api.NewGetFeedEndpoint(app.feedService, app.usersRepository),
+		api.NewGetFeedDigestEndpoint(app.llmService, app.usersRepository),
+		api.NewGetFeedSourceEndpoint(app.feedSourcesService, app.usersRepository),
+		api.NewGetFeedSourcesEndpoint(app.feedSourcesService, app.usersRepository),
+		api.NewPatchArticleEndpoint(app.feedService, app.usersRepository),
+		api.NewPatchFeedSourceEndpoint(app.feedSourcesService, app.usersRepository),
+		api.NewExecuteUpdateFeedEndpoint(app.feedService),
 	}
 
 	// framework

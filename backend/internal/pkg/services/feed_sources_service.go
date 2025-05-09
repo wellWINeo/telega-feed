@@ -40,6 +40,10 @@ func (f *FeedSourcesService) GetSource(
 	return f.feedSourceRepository.GetSource(ctx, userId, sourceId)
 }
 
+func (f *FeedSourcesService) GetSourcesForFeedUpdate(ctx context.Context) ([]*entities.FeedSource, error) {
+	return f.feedSourceRepository.GetSourcesForFeedUpdate(ctx)
+}
+
 func (f *FeedSourcesService) UpdateSource(
 	ctx context.Context,
 	userId entities.UserId,

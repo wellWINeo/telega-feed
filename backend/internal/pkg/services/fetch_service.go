@@ -93,6 +93,7 @@ func (f FetchService) fetchArticlesBySource(ctx context.Context, source *entitie
 	}
 
 	for _, article := range articles {
+		article.SourceId = source.Id
 		out <- article
 	}
 }

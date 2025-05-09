@@ -1,11 +1,13 @@
 package entities
 
-type FeedSourceId = string
+import "github.com/google/uuid"
+
+type FeedSourceId = uuid.UUID
 
 type FeedSource struct {
-	Id       FeedSourceId `json:"id"`
-	Name     string       `json:"name"`
-	FeedUrl  string       `json:"feed_url"`
-	Type     FeedType     `json:"type"`
-	Disabled bool         `json:"disabled"`
+	Id       FeedSourceId `json:"id" sql:"id"`
+	Name     string       `json:"name" sql:"name"`
+	FeedUrl  string       `json:"feed_url" sql:"feed_url"`
+	Type     FeedType     `json:"type" sql:"type"`
+	Disabled bool         `json:"disabled" sql:"disabled"`
 }

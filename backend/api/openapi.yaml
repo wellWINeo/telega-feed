@@ -100,7 +100,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/FeedSource'
+              $ref: '#/components/schemas/AddFeedSourceDto'
       responses:
         200:
           description: Added feed source
@@ -213,6 +213,22 @@ components:
         - url
         - preview_url
         - starred
+
+    AddFeedSourceDto:
+      type: object
+      properties:
+        name:
+          type: string
+        feed_url:
+          type: string
+          format: uri
+        disabled:
+          type: boolean
+      required:
+        - name
+        - feed_url
+        - disabled
+
     FeedSource:
       type: object
       properties:
@@ -224,12 +240,15 @@ components:
         feed_url:
           type: string
           format: uri
+        type:
+          type: string
         disabled:
           type: boolean
       required:
         - id
         - name
         - feed_url
+        - type
         - disabled
     Digest:
       type: object

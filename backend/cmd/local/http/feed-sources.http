@@ -1,5 +1,16 @@
 
-@feedSourceId = 13
+@feedSourceId = d57dbda3-91a5-4268-95dc-a8d2691793d6
+
+### Add feed source
+POST {{url}}/api/feed-sources
+X-UserId: {{userId}}
+Content-Type: application/json
+
+{
+  "name": "opennet",
+  "feed_url": "https://www.opennet.ru/opennews/opennews_all.rss",
+  "disabled": false
+}
 
 ### Get feed sources
 GET {{url}}/api/feed-sources

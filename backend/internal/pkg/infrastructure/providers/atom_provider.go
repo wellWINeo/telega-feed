@@ -11,12 +11,23 @@ import (
 	"io"
 	"net/http"
 	"strings"
+	"time"
 )
 
 const atomSpecUrl = "www.w3.org/2005/Atom"
 
 type AtomProvider struct {
 	http myhttp.HttpClient
+}
+
+func NewAtomProvider() *AtomProvider {
+	return &AtomProvider{
+		http: &http.Client{Timeout: 15 * time.Second},
+	}
+}
+
+func NewAtomProviderWithClient(http myhttp.HttpClient) *AtomProvider {
+	return &AtomProvider{http: http}
 }
 
 func (a AtomProvider) CheckType(reader io.Reader) (bool, error) {

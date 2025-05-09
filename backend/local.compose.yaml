@@ -1,0 +1,32 @@
+services:
+  api:
+#    build:
+#      context: .
+#      dockerfile: ./Dockerfile
+    image: telegafeed-api:latest
+    ports:
+      - "8081:8080"
+    depends_on:
+      - ydb
+    environment:
+      PORT: 8080
+      YDB_CONNECTIONSTRING: grpc://ydb:2136/local
+    restart: unless-stopped
+
+  ydb:
+    image: ydbplatform/local-ydb
+    platform: linux/amd64
+    ports:
+      - "2135:2135"
+      - "2136:2136"
+      - "8765:8765"
+      - "9092:9092"
+    volumes:
+      - ydb_data:/ydb_data
+    environment:
+      GRPC_TLS_PORT: 2135
+      GRPC_PORT: 2136
+      MON_PORT: 8765
+
+volumes:
+  ydb_data:

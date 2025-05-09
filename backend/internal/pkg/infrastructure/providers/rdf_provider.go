@@ -11,12 +11,23 @@ import (
 	"io"
 	"net/http"
 	"strings"
+	"time"
 )
 
 const rdfSpecUrl = "www.w3.org/1999/02/22-rdf-syntax-ns"
 
 type RDFProvider struct {
 	http myhttp.HttpClient
+}
+
+func NewRDFProvider() *RDFProvider {
+	return &RDFProvider{
+		http: &http.Client{Timeout: 15 * time.Second},
+	}
+}
+
+func NewRDFProviderWithClient(http myhttp.HttpClient) *RDFProvider {
+	return &RDFProvider{http: http}
 }
 
 func (r *RDFProvider) CheckType(reader io.Reader) (bool, error) {

@@ -8,6 +8,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/ydb-platform/ydb-go-sdk/v3"
 	"github.com/ydb-platform/ydb-go-sdk/v3/query"
+	"github.com/ydb-platform/ydb-go-sdk/v3/table/types"
 	"io"
 )
 
@@ -69,13 +70,13 @@ func (y *YdbDigestsRepository) AddDigest(ctx context.Context, userId entities.Us
 		`
 		DECLARE $uuid AS Uuid;
 		DECLARE $user_id AS Uuid;
-		DECLARE $digest AS Utf8;
+		DECLARE $digest AS String;
 		
 		INSERT INTO digests(id, user_id, text) VALUES ($uuid, $user_id, $digest);
 		`,
 		query.WithParameters(ydb.ParamsBuilder().
 			Param("$uuid").Uuid(id).
-			Param("$digest").Text(digest).
+			Param("$digest").Any(types.StringValueFromString(digest)).
 			Param("$user_id").Uuid(userUUID).
 			Build(),
 		),

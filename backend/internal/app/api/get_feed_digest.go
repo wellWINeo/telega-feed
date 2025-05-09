@@ -2,21 +2,34 @@ package api
 
 import (
 	"TelegaFeed/internal/app/api/middlewares"
+	abstractrepositories "TelegaFeed/internal/pkg/core/abstractions/infrastructure/repositories"
 	abstractservices "TelegaFeed/internal/pkg/core/abstractions/services"
 	"github.com/labstack/echo/v4"
 	"net/http"
 )
 
 type GetFeedDigestEndpoint struct {
-	llmService abstractservices.LlmService
+	llmService      abstractservices.LlmService
+	usersRepository abstractrepositories.UsersRepository
 }
 
-func NewGetFeedDigestEndpoint(llmService abstractservices.LlmService) *GetFeedDigestEndpoint {
-	return &GetFeedDigestEndpoint{llmService: llmService}
+func NewGetFeedDigestEndpoint(
+	llmService abstractservices.LlmService,
+	usersRepository abstractrepositories.UsersRepository,
+) *GetFeedDigestEndpoint {
+	return &GetFeedDigestEndpoint{
+		llmService:      llmService,
+		usersRepository: usersRepository,
+	}
 }
 
 func (g GetFeedDigestEndpoint) Setup(e *echo.Echo) {
-	e.GET("/api/feed/digest", g.Execute, middlewares.ParseUserIDMiddleware)
+	e.GET(
+		"/api/feed/digest",
+		g.Execute,
+		middlewares.ParseUserIDMiddleware,
+		middlewares.UserExistsMiddleware(g.usersRepository),
+	)
 }
 
 func (g GetFeedDigestEndpoint) Execute(e echo.Context) error {

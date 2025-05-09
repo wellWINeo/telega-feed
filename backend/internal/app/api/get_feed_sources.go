@@ -2,6 +2,7 @@ package api
 
 import (
 	"TelegaFeed/internal/app/api/middlewares"
+	abstractrepositories "TelegaFeed/internal/pkg/core/abstractions/infrastructure/repositories"
 	abstractservices "TelegaFeed/internal/pkg/core/abstractions/services"
 	"github.com/labstack/echo/v4"
 	"net/http"
@@ -9,14 +10,26 @@ import (
 
 type GetFeedSourcesEndpoint struct {
 	feedSourcesService abstractservices.FeedSourcesService
+	usersRepository    abstractrepositories.UsersRepository
 }
 
-func NewGetFeedSourcesEndpoint(feedSourcesService abstractservices.FeedSourcesService) *GetFeedSourcesEndpoint {
-	return &GetFeedSourcesEndpoint{feedSourcesService: feedSourcesService}
+func NewGetFeedSourcesEndpoint(
+	feedSourcesService abstractservices.FeedSourcesService,
+	usersRepository abstractrepositories.UsersRepository,
+) *GetFeedSourcesEndpoint {
+	return &GetFeedSourcesEndpoint{
+		feedSourcesService: feedSourcesService,
+		usersRepository:    usersRepository,
+	}
 }
 
 func (g GetFeedSourcesEndpoint) Setup(e *echo.Echo) {
-	e.GET("/api/feed-sources", g.Execute, middlewares.ParseUserIDMiddleware)
+	e.GET(
+		"/api/feed-sources",
+		g.Execute,
+		middlewares.ParseUserIDMiddleware,
+		middlewares.UserExistsMiddleware(g.usersRepository),
+	)
 }
 
 func (g GetFeedSourcesEndpoint) Execute(c echo.Context) error {

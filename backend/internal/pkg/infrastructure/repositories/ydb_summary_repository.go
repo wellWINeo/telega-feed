@@ -3,7 +3,6 @@ package repositories
 import (
 	"TelegaFeed/internal/pkg/core/entities"
 	"context"
-	"fmt"
 	"github.com/google/uuid"
 	"github.com/ydb-platform/ydb-go-sdk/v3"
 	"github.com/ydb-platform/ydb-go-sdk/v3/query"
@@ -18,11 +17,6 @@ func NewYdbSummariesRepository(db *ydb.Driver) *YdbSummariesRepository {
 }
 
 func (y YdbSummariesRepository) GetSummary(ctx context.Context, articleId entities.ArticleId) (*entities.Summary, error) {
-	articleUUID, err := uuid.Parse(articleId)
-	if err != nil {
-		return nil, fmt.Errorf("invalid article uuid: %w", err)
-	}
-
 	row, err := y.db.Query().QueryRow(
 		ctx,
 		`
@@ -38,7 +32,7 @@ func (y YdbSummariesRepository) GetSummary(ctx context.Context, articleId entiti
 		LIMIT 1;	
 		`,
 		query.WithParameters(ydb.ParamsBuilder().
-			Param("$article_id").Uuid(articleUUID).Build()),
+			Param("$article_id").Uuid(articleId).Build()),
 		query.WithTxControl(query.NoTx()),
 	)
 
@@ -58,12 +52,7 @@ func (y YdbSummariesRepository) GetSummary(ctx context.Context, articleId entiti
 func (y YdbSummariesRepository) AddSummary(ctx context.Context, articleId entities.ArticleId, summary *entities.Summary) error {
 	id := uuid.New()
 
-	articleUUID, err := uuid.Parse(articleId)
-	if err != nil {
-		return fmt.Errorf("invalid article id: %s", articleId)
-	}
-
-	err = y.db.Query().Exec(
+	err := y.db.Query().Exec(
 		ctx,
 		`
 		DECLARE $id AS Uuid;
@@ -75,7 +64,7 @@ func (y YdbSummariesRepository) AddSummary(ctx context.Context, articleId entiti
 		`,
 		query.WithParameters(ydb.ParamsBuilder().
 			Param("$id").Uuid(id).
-			Param("$article_id").Uuid(articleUUID).
+			Param("$article_id").Uuid(articleId).
 			Param("$text").Text(summary.Text).
 			Build(),
 		),

@@ -14,3 +14,6 @@ Content-Type: application/json
   "starred": true,
   "read": true
 }
+
+### Update feed
+POST {{url}}/api/execute/update-feed

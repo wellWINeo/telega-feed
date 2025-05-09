@@ -6,7 +6,7 @@ import (
 )
 
 type FeedRepository interface {
-	AddArticlesToFeed(ctx context.Context, articles []*entities.Article) error
+	AddArticleToFeed(ctx context.Context, article *entities.Article) error
 	GetFeedByUser(ctx context.Context, userId entities.UserId) ([]*entities.Article, error)
 	GetTodayArticles(ctx context.Context, userId entities.UserId) ([]*entities.Article, error)
 	GetArticleById(ctx context.Context, userId entities.UserId, articleId entities.ArticleId) (*entities.Article, error)

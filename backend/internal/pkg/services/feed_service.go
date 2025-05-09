@@ -5,6 +5,8 @@ import (
 	"TelegaFeed/internal/pkg/core/abstractions/services"
 	"TelegaFeed/internal/pkg/core/entities"
 	"context"
+	"github.com/google/uuid"
+	"log"
 )
 
 type FeedService struct {
@@ -57,4 +59,23 @@ func (f *FeedService) UpdateArticle(
 	_, err := f.feedRepository.UpdateArticle(ctx, userId, articleId, patch)
 
 	return err
+}
+
+func (f *FeedService) UpdateFeed(ctx context.Context) error {
+	feedSource, err := f.feedSourceRepository.GetSourcesForFeedUpdate(ctx)
+	if err != nil {
+		return err
+	}
+
+	fetchedArticles := f.fetchService.FetchArticles(ctx, feedSource)
+
+	for _, article := range fetchedArticles {
+		article.Id = uuid.New()
+		err := f.feedRepository.AddArticleToFeed(ctx, article)
+		if err != nil {
+			log.Printf("Error adding article to feed: %v", err)
+		}
+	}
+
+	return nil
 }

@@ -1,0 +1,1 @@
+INSERT INTO users(id, telegram_id) VALUES (Uuid('00000000-0000-0000-0000-000000000000'), '123');

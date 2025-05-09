@@ -100,6 +100,7 @@ func checkXMLStartElement[T any](reader io.Reader, checkFunc func(el xml.StartEl
 
 func getXMLStartElement(reader io.Reader) (*xml.StartElement, error) {
 	decoder := xml.NewDecoder(reader)
+	decoder.CharsetReader = charset.NewReaderLabel
 
 	for {
 		token, err := decoder.Token()
