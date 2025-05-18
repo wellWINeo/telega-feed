@@ -1,0 +1,130 @@
+
+@feedSourceId = 55555555-5555-5555-5555-555555555555
+
+### Add feed source
+POST {{url}}/api/feed-sources
+X-UserId: {{userId}}
+Content-Type: application/json
+
+{
+  "name": "opennet",
+  "feed_url": "http://nginx/opennews_all.rss",
+  "disabled": false
+}
+
+> {%
+    client.test("Add feed source is OK", () => client
+        .assert(response.status === 200, "Add feed source doesn't indicate success")
+    )
+
+    // currently doesn't return id
+    // client.test("Check returned ID", () => client
+    //     .assert(response.body.id === client.global.get("feedSourceId"), "Unexpected feed source id")
+    // )
+%}
+
+### Get feed sources
+GET {{url}}/api/feed-sources
+X-UserId: {{userId}}
+
+> {%
+    client.test("Get feed sources is OK", () => client
+        .assert(response.status === 200, "Get feed sources doesn't indicate success")
+    )
+
+    client.test("Check response items length", () => client
+        .assert(response.body.length === 1, "Unexpected feed sources count")
+    )
+
+    client.test("Ensure feed source id", () => client
+        .assert(response.body[0].id === "55555555-5555-5555-5555-555555555555", "Unexpected feed source id")
+    )
+%}
+
+### Get feed source by id
+GET {{url}}/api/feed-sources/{{feedSourceId}}
+X-UserId: {{userId}}
+
+> {%
+    client.test("Get feed source is OK", () => client
+        .assert(response.status === 200, "Get feed source doesn't indicate success")
+    )
+
+    client.test("Ensure feed source id", () => client
+        .assert(response.body.id === "55555555-5555-5555-5555-555555555555", "Unexpected feed source id")
+    )
+
+    client.test("Ensure feed source name", () => client
+        .assert(response.body.name === "opennet", "Unexpected feed source's name")
+    )
+
+    client.test("Ensure feed source url", () => client
+        .assert(response.body.feed_url === "http://nginx/opennews_all.rss", "Unexpected feed source's url")
+    )
+
+    client.test("Ensure feed source name", () => client
+        .assert(response.body.disabled === false, "Unexpected feed source's disabled")
+    )
+%}
+
+### Update feed source
+PATCH {{url}}/api/feed-sources/{{feedSourceId}}
+X-UserId: {{userId}}
+Content-Type: application/json
+
+{
+  "name": "opennet_upd",
+  "disabled": true
+}
+
+> {%
+    client.test("Ensure successful feed source update", () => client
+        .assert(response.status === 200, "Status code does not indicate successful feed source update")
+    )
+%}
+
+### Check update feed source
+GET {{url}}/api/feed-sources/{{feedSourceId}}
+X-UserId: {{userId}}
+
+> {%
+    client.test("Get feed source is OK", () => client
+        .assert(response.status === 200, "Get feed source doesn't indicate success")
+    )
+
+    client.test("Ensure feed source id", () => client
+        .assert(response.body.id === "55555555-5555-5555-5555-555555555555", "Unexpected feed source id")
+    )
+
+    client.test("Ensure feed source name", () => client
+        .assert(response.body.name === "opennet_upd", "Unexpected feed source's name")
+    )
+
+    client.test("Ensure feed source url", () => client
+        .assert(response.body.feed_url === "http://nginx/opennews_all.rss", "Unexpected feed source's url")
+    )
+
+    client.test("Ensure feed source name", () => client
+        .assert(response.body.disabled === true, "Unexpected feed source's disabled")
+    )
+%}
+
+### Delete feed source id
+DELETE {{url}}/api/feed-sources/{{feedSourceId}}
+X-UserId: {{userId}}
+
+> {%
+    client.test("Ensure feed source deleted", () => client
+        .assert(response.status === 200, "Status code does not indicate successful delete")
+    )
+%}
+
+### Ensure deleted
+GET {{url}}/api/feed-sources/{{feedSourceId}}
+X-UserId: {{userId}}
+
+> {%
+    client.test("Ensure not found", () => client
+        .assert(response.status === 404, "Status code does not indicate not found")
+    )
+%}

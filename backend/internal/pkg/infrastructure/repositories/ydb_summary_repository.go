@@ -3,9 +3,11 @@ package repositories
 import (
 	"TelegaFeed/internal/pkg/core/entities"
 	"context"
+	"errors"
 	"github.com/google/uuid"
 	"github.com/ydb-platform/ydb-go-sdk/v3"
 	"github.com/ydb-platform/ydb-go-sdk/v3/query"
+	"io"
 )
 
 type YdbSummariesRepository struct {
@@ -16,7 +18,7 @@ func NewYdbSummariesRepository(db *ydb.Driver) *YdbSummariesRepository {
 	return &YdbSummariesRepository{db: db}
 }
 
-func (y YdbSummariesRepository) GetSummary(ctx context.Context, articleId entities.ArticleId) (*entities.Summary, error) {
+func (y *YdbSummariesRepository) GetSummary(ctx context.Context, articleId entities.ArticleId) (*entities.Summary, error) {
 	row, err := y.db.Query().QueryRow(
 		ctx,
 		`
@@ -27,7 +29,7 @@ func (y YdbSummariesRepository) GetSummary(ctx context.Context, articleId entiti
 			s.generated_at,
 			s.text
 		FROM summaries s
-		WHERE s.id = $article_id
+		WHERE s.article_id= $article_id
 		ORDER BY s.generated_at DESC
 		LIMIT 1;	
 		`,
@@ -35,6 +37,10 @@ func (y YdbSummariesRepository) GetSummary(ctx context.Context, articleId entiti
 			Param("$article_id").Uuid(articleId).Build()),
 		query.WithTxControl(query.NoTx()),
 	)
+
+	if errors.Is(err, io.EOF) {
+		return nil, nil
+	}
 
 	if err != nil {
 		return nil, err
@@ -49,7 +55,7 @@ func (y YdbSummariesRepository) GetSummary(ctx context.Context, articleId entiti
 	return &summary, nil
 }
 
-func (y YdbSummariesRepository) AddSummary(ctx context.Context, articleId entities.ArticleId, summary *entities.Summary) error {
+func (y *YdbSummariesRepository) AddSummary(ctx context.Context, articleId entities.ArticleId, summary *entities.Summary) error {
 	id := uuid.New()
 
 	err := y.db.Query().Exec(
@@ -72,4 +78,9 @@ func (y YdbSummariesRepository) AddSummary(ctx context.Context, articleId entiti
 	)
 
 	return err
+}
+
+func (y *YdbSummariesRepository) DeleteOrphanedSummaries(ctx context.Context) error {
+	//TODO implement me
+	panic("implement me")
 }

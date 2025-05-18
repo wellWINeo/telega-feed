@@ -107,7 +107,14 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/FeedSource'
+                type: object
+                properties:
+                  id:
+                    type: string
+                    format: uuid
+                required:
+                  - id
+
     get:
       tags: [FeedSources]
       summary: Get feed sources

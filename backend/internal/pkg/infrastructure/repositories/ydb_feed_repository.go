@@ -10,6 +10,7 @@ import (
 	"github.com/ydb-platform/ydb-go-sdk/v3/table"
 	"github.com/ydb-platform/ydb-go-sdk/v3/table/types"
 	"strings"
+	"time"
 )
 
 type YdbFeedRepository struct {
@@ -235,4 +236,14 @@ func (y *YdbFeedRepository) UpdateArticle(
 	)
 
 	return nil, err
+}
+
+func (y *YdbFeedRepository) DeleteOrphanedArticles(ctx context.Context) error {
+	//TODO implement me
+	panic("implement me")
+}
+
+func (y *YdbFeedRepository) DeleteArticlesAddedBefore(ctx context.Context, datetime time.Time) error {
+	//TODO implement me
+	panic("implement me")
 }

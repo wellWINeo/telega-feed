@@ -15,6 +15,10 @@ type addFeedSourceEndpointRequest struct {
 	FeedUrl string `json:"feed_url"`
 }
 
+type addFeedSourceEndpointResponse struct {
+	ID uuid.UUID `json:"id"`
+}
+
 type AddFeedSourceEndpoint struct {
 	feedSourcesService abstractservices.FeedSourcesService
 	usersRepository    abstractrepositories.UsersRepository
@@ -57,12 +61,14 @@ func (a AddFeedSourceEndpoint) Execute(c echo.Context) error {
 		Disabled: false,
 	}
 
-	err := a.feedSourcesService.AddSource(ctx, userId, &feedSource)
+	feedSourceId, err := a.feedSourcesService.AddSource(ctx, userId, &feedSource)
 	if err != nil {
 		c.Logger().Errorf("failed to add feed source: %v", err)
 
 		return c.NoContent(http.StatusInternalServerError)
 	}
 
-	return c.NoContent(http.StatusOK)
+	return c.JSON(http.StatusOK, addFeedSourceEndpointResponse{
+		ID: feedSourceId,
+	})
 }

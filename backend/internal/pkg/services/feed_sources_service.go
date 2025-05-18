@@ -22,7 +22,11 @@ func NewFeedSourcesService(
 	}
 }
 
-func (f *FeedSourcesService) AddSource(ctx context.Context, userId entities.UserId, source *entities.FeedSource) error {
+func (f *FeedSourcesService) AddSource(
+	ctx context.Context,
+	userId entities.UserId,
+	source *entities.FeedSource,
+) (entities.FeedSourceId, error) {
 	source.Type = f.fetchService.DetectType(source)
 
 	return f.feedSourceRepository.AddSource(ctx, userId, source)

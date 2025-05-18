@@ -3,6 +3,7 @@ package abstractrepositories
 import (
 	"TelegaFeed/internal/pkg/core/entities"
 	"context"
+	"time"
 )
 
 type FeedRepository interface {
@@ -11,4 +12,6 @@ type FeedRepository interface {
 	GetTodayArticles(ctx context.Context, userId entities.UserId) ([]*entities.Article, error)
 	GetArticleById(ctx context.Context, userId entities.UserId, articleId entities.ArticleId) (*entities.Article, error)
 	UpdateArticle(ctx context.Context, userId entities.UserId, articleId entities.ArticleId, patch *entities.ArticlePatch) (*entities.Article, error)
+	DeleteOrphanedArticles(ctx context.Context) error
+	DeleteArticlesAddedBefore(ctx context.Context, datetime time.Time) error
 }

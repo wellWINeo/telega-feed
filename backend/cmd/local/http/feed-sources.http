@@ -1,5 +1,5 @@
 
-@feedSourceId = d57dbda3-91a5-4268-95dc-a8d2691793d6
+@feedSourceId = 0939a891-f54e-4697-b600-3e01b1eceac1
 
 ### Add feed source
 POST {{url}}/api/feed-sources
@@ -26,7 +26,7 @@ X-UserId: {{userId}}
 Content-Type: application/json
 
 {
-  "name": "Updated feed source"
+  "disabled": true
 }
 
 ### Delete feed source id

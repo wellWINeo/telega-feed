@@ -20,13 +20,15 @@ func NewYdbFeedSourceRepository(db *ydb.Driver) *YdbFeedSourceRepository {
 	return &YdbFeedSourceRepository{db: db}
 }
 
-func (y *YdbFeedSourceRepository) AddSource(ctx context.Context, userId entities.UserId, source *entities.FeedSource) error {
+func (y *YdbFeedSourceRepository) AddSource(ctx context.Context, userId entities.UserId, source *entities.FeedSource) (entities.FeedSourceId, error) {
 	userUUID, err := uuid.Parse(userId)
 	if err != nil {
-		return fmt.Errorf("failed to parse user UUID: %w", err)
+		return uuid.Nil, fmt.Errorf("failed to parse user UUID: %w", err)
 	}
 
-	return y.db.Table().DoTx(ctx, func(ctx context.Context, tx table.TransactionActor) error {
+	var sourceId entities.FeedSourceId
+
+	err = y.db.Table().DoTx(ctx, func(ctx context.Context, tx table.TransactionActor) error {
 		result, err := tx.Execute(ctx, selectFeedSourceByFeedUrlSql, table.NewQueryParameters(
 			table.ValueParam("$feed_url", types.StringValueFromString(source.FeedUrl)),
 		))
@@ -34,8 +36,6 @@ func (y *YdbFeedSourceRepository) AddSource(ctx context.Context, userId entities
 		defer func() {
 			_ = result.Close()
 		}()
-
-		var sourceId entities.FeedSourceId
 
 		if err != nil {
 			return err
@@ -80,6 +80,12 @@ func (y *YdbFeedSourceRepository) AddSource(ctx context.Context, userId entities
 		return nil
 
 	}, table.WithTxSettings(table.TxSettings(table.WithSerializableReadWrite())))
+
+	if err != nil {
+		return uuid.Nil, err
+	}
+
+	return sourceId, nil
 }
 
 func (y *YdbFeedSourceRepository) GetSources(ctx context.Context, userId entities.UserId) ([]*entities.FeedSource, error) {
@@ -166,7 +172,7 @@ func (y *YdbFeedSourceRepository) UpdateSource(ctx context.Context, userId entit
 	}
 
 	if patch.Disabled.HasValue() {
-		sqlBuilder.WriteString("DECLARE $disabled AS Boolean;\n")
+		sqlBuilder.WriteString("DECLARE $disabled AS Bool;\n")
 
 		value, _ := patch.Disabled.Value()
 		paramsBuilder = paramsBuilder.Param("$disabled").Bool(value)
@@ -222,4 +228,20 @@ func (y *YdbFeedSourceRepository) DeleteSource(ctx context.Context, userId entit
 	)
 
 	return err
+}
+
+func (y *YdbFeedSourceRepository) DeleteOrphanedSources(ctx context.Context) error {
+	return y.db.Table().DoTx(ctx, func(ctx context.Context, tx table.TransactionActor) error {
+		result, err := tx.Execute(ctx, `
+			DELETE FROM feed_sources ON
+			SELECT *
+			FROM feed_sources s
+			LEFT ONLY feed_source_user_infos i
+				ON s.id = i.source_id
+			`, table.NewQueryParameters())
+
+		defer func() { _ = result.Close() }()
+
+		return err
+	}, table.WithTxSettings(table.TxSettings(table.WithSnapshotReadOnly())))
 }

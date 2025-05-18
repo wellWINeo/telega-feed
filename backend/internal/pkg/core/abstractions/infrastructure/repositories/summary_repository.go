@@ -8,4 +8,5 @@ import (
 type SummariesRepository interface {
 	GetSummary(ctx context.Context, articleId entities.ArticleId) (*entities.Summary, error)
 	AddSummary(ctx context.Context, articleId entities.ArticleId, summary *entities.Summary) error
+	DeleteOrphanedSummaries(ctx context.Context) error
 }

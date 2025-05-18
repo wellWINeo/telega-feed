@@ -1,18 +1,39 @@
-version: '3.8'
-
 services:
-  api:
+  ydb:
+    image: ydbplatform/local-ydb
+    platform: linux/amd64
+    ports:
+      - "2135:2135"
+      - "2136:2136"
+      - "8765:8765"
+      - "9092:9092"
+    environment:
+      GRPC_TLS_PORT: 2135
+      GRPC_PORT: 2136
+      MON_PORT: 8765
+    restart: unless-stopped
+
+  setup:
+    image: telegafeed/setupdb:latest
     build:
       context: .
-      dockerfile: Dockerfile
-    ports:
-      - "8081:8080"
+      dockerfile: SetupDB.Dockerfile
+      tags:
+        - telegafeed/setupdb:latest
     depends_on:
-      - nginx
+      ydb:
+        condition: service_started
+    volumes:
+      - ./scripts:/scripts:ro
     environment:
-      - PORT=8080
-      - YDB_CONNECTIONSTRING=test
-    restart: unless-stopped
+      YDB_DSN: "grpc://ydb:2136/local"
+      YDB_SCRIPTS: "/scripts/schema.sql /scripts/seed.sql"
+    deploy:
+      restart_policy:
+        condition: on-failure
+        max_attempts: 3
+        delay: 10s
+        window: 1m
 
   nginx:
     image: nginx:alpine
@@ -20,5 +41,31 @@ services:
       - "8080:8080"
     volumes:
       - ./configs/test/nginx.conf:/etc/nginx/nginx.conf
-      - ./testdata:/usr/share/nginx/html
+      - ./tests:/usr/share/nginx/html
+    restart: unless-stopped
+    healthcheck:
+      test: curl -f http://localhost:80
+      interval: 5s
+      timeout: 3s
+      retries: 5
+
+  api:
+    image: telegafeed/api:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+      tags:
+        - telegafeed/api:latest
+    ports:
+      - "8081:8080"
+    depends_on:
+      nginx:
+        condition: service_healthy
+      ydb:
+        condition: service_started
+      setup:
+        condition: service_completed_successfully
+    environment:
+      PORT: 8080
+      YDB_CONNECTIONSTRING: grpc://ydb:2136/local
     restart: unless-stopped

@@ -10,6 +10,7 @@ import (
 	"github.com/ydb-platform/ydb-go-sdk/v3/query"
 	"github.com/ydb-platform/ydb-go-sdk/v3/table/types"
 	"io"
+	"time"
 )
 
 type YdbDigestsRepository struct {
@@ -84,4 +85,9 @@ func (y *YdbDigestsRepository) AddDigest(ctx context.Context, userId entities.Us
 	)
 
 	return err
+}
+
+func (y *YdbDigestsRepository) DeleteDigestsGeneratedBefore(ctx context.Context, datetime time.Time) error {
+	//TODO implement me
+	panic("implement me")
 }

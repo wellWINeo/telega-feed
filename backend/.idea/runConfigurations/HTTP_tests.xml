@@ -1,0 +1,7 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="HTTP tests" type="CompoundRunConfigurationType">
+    <toRun name="Test feed" type="HttpClient.HttpRequestRunConfigurationType" />
+    <toRun name="Test feed-sources" type="HttpClient.HttpRequestRunConfigurationType" />
+    <method v="2" />
+  </configuration>
+</component>

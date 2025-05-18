@@ -1,0 +1,10 @@
+
+### Get feed
+GET {{url}}/api/feed
+X-UserId: {{userId}}
+
+> {%
+    client.test("Get feed is OK", () => client
+        .assert(response.status === 200, "Get feed's status code does not indicate success")
+    )
+ %}

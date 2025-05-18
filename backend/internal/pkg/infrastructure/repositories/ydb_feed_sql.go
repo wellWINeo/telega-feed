@@ -37,19 +37,21 @@ DECLARE $user_id as Uuid;
 DECLARE $article_id as Uuid;
 
 SELECT 
-	a.id,
-	a.added_at,
-	a.published_at,
-	a.title,
-	a.text,
-	a.url,
-	a.preview_url,
-	i.starred,
-	i.read
+	a.id AS id,
+	a.source_id AS source_id,
+	a.added_at AS added_at,
+	a.published_at AS published_at,
+	a.title AS title,
+	a.text AS text,
+	a.url AS url,
+	a.preview_url AS preview_url,
+	i.starred AS starred,
+	i.read AS read
 FROM article_user_infos i
 INNER JOIN articles a
 ON a.id = i.article_id
-WHERE i.user_id = $user_id AND i.article_id = $article_id;
+WHERE i.user_id = $user_id AND i.article_id = $article_id
+LIMIT 1;
 `
 )
 

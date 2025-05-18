@@ -4,6 +4,6 @@ GET {{url}}/api/feed/digest
 X-UserId: {{userId}}
 
 ### Get article's summary
-@articleId = 13
+@articleId = 6d2da808-903e-4e4e-a379-b949b657609d
 GET {{url}}/api/articles/{{articleId}}/summary
 X-UserId: {{userId}}
